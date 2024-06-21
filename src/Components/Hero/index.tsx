@@ -4,7 +4,7 @@ import { useEffect, useRef } from "react";
 import { Reveal } from "./Reveal"; // Adjust the path if necessary
 import Link from "next/link";
 
-import { MarqueeDemo } from "../artistList";
+// import { MarqueeDemo } from "../artistList";
 import { cn } from "@/lib/utils";
 import Marquee from "@/Components/magicui/marquee";
 
@@ -78,7 +78,22 @@ const Hero = () => {
   }, []);
 
   return (
-    <div className="bg-blue-700 relative h-[75vh] w-[95%] md:w-[90%] border-b border-ui-border-base mx-auto rounded-2xl overflow-hidden">
+    <div className="bg-blue-700 relative h-[75vh] w-[95%] md:w-[90%] border-b border-ui-border-base mx-auto rounded-2xl overflow-hidden ">
+  <div className=" ">  <motion.div
+        ref={ref}
+        className="absolute inset-0 z-0  "
+        variants={flagVariants}
+        initial="hidden"
+        animate={flagControls}
+      >
+  
+        <motion.img
+          src="./2.svg"
+          alt="Flag 1"
+          className="absolute w-20 h-20 top-5 right-7 transform rotate-180"
+        />
+    
+      </motion.div>
       <motion.div
         ref={ref}
         className="absolute inset-0 z-0 flex justify-center items-center"
@@ -86,22 +101,28 @@ const Hero = () => {
         initial="hidden"
         animate={flagControls}
       >
-        <motion.img
-          src="./1.svg"
-          alt="Flag 1"
-          className="absolute w-20 h-20 top-0 left-0"
-        />
+     
         <motion.img
           src="./2.svg"
           alt="Flag 1"
-          className="absolute w-20 h-20 top-0 left-0"
+          className="absolute w-20 h-20 bottom-7 left-16"
         />
+     
+      </motion.div>
+      <motion.div
+        ref={ref}
+        className="absolute inset-0 z-0 flex justify-center items-center"
+        variants={flagVariants}
+        initial="hidden"
+        animate={flagControls}
+      >
+   
         <motion.img
           src="./3.svg"
           alt="Flag 1"
           className="absolute w-20 h-20 top-0 left-0"
         />
-      </motion.div>
+      </motion.div></div>
       <div className="absolute inset-0 z-10 flex flex-col justify-center items-center text-center p-8 gap-6">
         <div className="text-5xl lg:text-8xl font-bold text-white">
           <Reveal>
@@ -186,14 +207,14 @@ const Hero = () => {
           }}
         >
           <div className=" flex  flex-col">
-            <Marquee pauseOnHover className="[--duration:20s]">
+            <Marquee  className="[--duration:20s]">
               {firstRow.map((flag, index) => (
                 <FlagCard key={index} flag={flag.flag} />
               ))}
             </Marquee>
 
             <div className="pointer-events-none absolute inset-y-0 right-0 w-1/3 bg-gradient-to-l dark:from-background"></div>
-          </div>{" "}
+          </div>
         </motion.p>
       </div>
     </div>
