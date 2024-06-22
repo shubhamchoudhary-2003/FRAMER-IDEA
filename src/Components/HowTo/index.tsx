@@ -30,7 +30,7 @@ const AnimatedSection = () => {
           >
             <h3 className="font-semibold text-primary flex items-center gap-2">
               <div className="bg-black text-white rounded-full px-3 py-1">1</div>
-              Download App and Create your Profile
+              Download App and Create your Profiles
             </h3>
             <p className="text-gray-600">
               Flexible layouts, and instant results! Choose a pre-built header or create a custom layout that perfectly suits your needs.
